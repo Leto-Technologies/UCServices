@@ -1,1 +1,1 @@
-test
+See https://help.github.com/articles/github-flavored-markdown for information on flavored markdown.
