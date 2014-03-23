@@ -12,7 +12,10 @@ namespace Services.Areas.HelpPage.Controllers
         // GET: /HelpPage/Home/
         public ActionResult Index()
         {
-			return Redirect(Request.Url.AbsoluteUri + "/help");
+			// don't know why, but by default you were getting redirected to //help sometimes.
+	        var url = (Request.Url.AbsolutePath + "/help").Replace("//", "/");
+
+			return Redirect(url);
         }
 	}
 }

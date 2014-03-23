@@ -481,6 +481,14 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
+        <member name="T:Services.Controllers.LocationController">
+            <summary>
+            Given a latitude, longitude, and radius- returns the closest locations ordered by distance.
+            </summary>
+            <returns>
+            A list of <see cref="!:Address">Addresses</see>
+            </returns>
+        </member>
         <member name="T:Services.Controllers.TestController">
             <summary>
             Testing infrastructure setup
