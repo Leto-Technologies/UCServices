@@ -7,8 +7,9 @@
 			
 		}
 
-		public Location(string name, string address1, string address2, string city, string state, string zip, double latitude, double longitude, double distance)
+		public Location(int id, string name, string address1, string address2, string city, string state, string zip, double latitude, double longitude, double distance)
 		{
+			Id = id;
 			Name = name;
 			Address1 = address1;
 			Address2 = address2;
@@ -20,6 +21,7 @@
 			Distance = distance;
 		}
 
+		public int Id { get; set; }
 		public string Name { get; set; }
 		public string Address1 { get; set; }
 		public string Address2 { get; set; }

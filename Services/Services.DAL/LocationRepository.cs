@@ -17,13 +17,12 @@ namespace Services.DAL
 
 			connection.Open();
 
-
 			var query = string.Format("SELECT * FROM GetAddresses({0}, {1}, {2});", latitude, longitude, radius);
 
 			var command = new Npgsql.NpgsqlCommand(query, connection);
 
-
 			NpgsqlDataAdapter da = new NpgsqlDataAdapter(command);
+			
 			da.Fill(ds);
 			
 			dt = ds.Tables[0];
@@ -37,6 +36,7 @@ namespace Services.DAL
 			// todo: replace this with some sort of reflection
 			foreach (DataRow row in dt.Rows)
 			{
+				var id = row.Field<int>("id");
 				var distance = row.Field<double>("distance");
 				var name = row.Field<string>("name");
 				var street = row.Field<string>("street");
@@ -47,7 +47,7 @@ namespace Services.DAL
 				var lat = row.Field<double>("latitude");
 				var lon = row.Field<double>("longitude");
 
-				locations.Add(new Location(name, street, street2, city, state, zip, lat, lon, distance));
+				locations.Add(new Location(id, name, street, street2, city, state, zip, lat, lon, distance));
 			}
 
 			return locations;
